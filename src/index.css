@@ -1,0 +1,438 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode styling */
+.dark {
+  background-color: #2d2d2d;
+  color: rgb(255, 255, 255);
+}
+
+.dark .bg-gray-600 {
+  background-color: #4a4a4a;
+}
+
+.dark .bg-gray-200 {
+  background-color: #3c3c3c;
+}
+
+.dark .text-white {
+  color: white;
+}
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #fffdda;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: contain; /* Ensures the entire image fits without cropping */
+  background-color: #ffffff; /* Optional: Set a background color for the empty space */
+  border-radius: 4px;
+}
+
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  height: 44px; /* Fixed height for consistency */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative; /* Required for the tooltip */
+  cursor: pointer; /* Indicates interactivity */
+}
+
+.card-title:hover::after {
+  content: attr(title); /* Displays the full name from the title attribute */
+  position: absolute;
+  top: 110%; /* Adjust to place the tooltip below the title */
+  left: 0;
+  width: max-content;
+  max-width: 300px; /* Optional: Restrict the maximum width of the tooltip */
+  background: #333;
+  color: #d2d49e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  z-index: 10;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  height: 44px; /* Fixed height to ensure consistency */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: -20px;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  color: #2f8732;
+  margin: 08px 0;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px 0px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-reviews {
+  color: #999999;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px; /* Push the button to the bottom */
+  padding: 10px 12px;
+  background-color:#2f8732;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #1c481d;
+}/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #2f8732; /* Green background */
+  color: white;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 300px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: #555;
+}
+
+/* Navbar Actions */
+.navbar-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navbar-button:hover {
+  text-decoration: underline;
+}
+
+/* Dark Mode Toggle Button (Adjusted for responsiveness) */
+.mode-toggle-btn {
+  width: 200px;
+  padding: 6px;
+  border-radius: 1px;
+  border-color: #2f8732;
+  background-color: #d0d0d0;
+  color: #4c4c4c;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(116, 116, 116, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  
+}
+
+.mode-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+.dark .mode-toggle-btn {
+  background-color: #666;
+  color: #fff;
+}
+
+/* Make Navbar and Dark Mode Button Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: center;
+  }
+
+  .navbar-brand {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .search-bar {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .navbar-actions {
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mode-toggle-btn {
+    width: 150px;
+    font-size: 12px;
+    padding: 8px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .search-bar {
+    width: 90%;
+  }
+
+  .mode-toggle-btn {
+    width: 130px;
+    font-size: 12px;
+    padding: 6px;
+    margin-top: 10px;
+  }
+}
+
+/* Loading and error message */
+.loading, .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #7c7c7c;
+}
+
+.error-message {
+  color: #ff4d4f;
+}
+
+/* Custom card styles */
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #fffdda;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: contain;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  height: 44px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  color: #2f8732;
+  margin: 08px 0;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px 0px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-reviews {
+  color: #999999;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background-color: #2f8732;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #1c481d;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-label {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.sort-select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #448d48;
+  border-radius: 4px;
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.pagination-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #1c481d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-button:not(:disabled):hover {
+  background-color: #1c481d;
+}
+
+.pagination-info {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}

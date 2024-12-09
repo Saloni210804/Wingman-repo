@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard';
+import { useState, useEffect } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import SearchBar from '../components/SearchBar';
 import '../../index.css'; // Import custom CSS file
 
 const HomePage = () => {
   const {
-    products,
-    search,
+   
     status,
     error,
-    setSortType,
-    currentPage,
-    setCurrentPage,
-    totalPages,
+    
   } = useProducts();
   const [darkMode, setDarkMode] = useState(false);
 

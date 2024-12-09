@@ -1,5 +1,4 @@
 import React from 'react';
-import DarkModeToggle from '../src/assets/components/DarkModeToggle';
 import ProductList from '../src/assets/components/ProductList';
 import HomePage from './assets/pages/HomePage';
 
